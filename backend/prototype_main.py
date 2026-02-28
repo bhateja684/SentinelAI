@@ -1,5 +1,5 @@
 # prototype_main.py
-
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi import FastAPI
 from pydantic import BaseModel
 import numpy as np
@@ -7,6 +7,14 @@ import math
 import uvicorn
 
 app = FastAPI(title="Digital Risk Intelligence Prototype")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],   # allow all origins for dev
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
  
 def shannon_entropy(string: str) -> float:
     prob = [float(string.count(c)) / len(string) for c in dict.fromkeys(list(string))]
