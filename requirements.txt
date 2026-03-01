@@ -5,3 +5,7 @@ joblib
 numpy
 fastapi
 uvicorn
+tldextract
+jellyfish
+tldextract
+idna
